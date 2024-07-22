@@ -3,7 +3,13 @@ import { useEffect, useState } from "react";
 import { Movie } from "../../type";
 import { requests } from "../../request";
 
-export const useProps = (fetchUrl: string) => {
+export const useProps = (
+  fetchUrl: string
+): {
+  movies: Movie[];
+  trailerUrl: string | null;
+  handleClick: (movie: Movie) => Promise<void>;
+} => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [trailerUrl, setTrailerUrl] = useState<string | null>("");
 

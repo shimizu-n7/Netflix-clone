@@ -6,6 +6,10 @@ type Props = {
 };
 
 export const Layout = ({ movie, truncate }: Props) => {
+  const path = movie?.backdrop_path
+    ? `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`
+    : "";
+
   return (
     <>
       {movie && movie.backdrop_path ? (
@@ -13,7 +17,7 @@ export const Layout = ({ movie, truncate }: Props) => {
           className="text-white object-contain"
           style={{
             backgroundSize: "cover",
-            backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+            backgroundImage: path,
             backgroundPosition: "center center",
           }}
         >
