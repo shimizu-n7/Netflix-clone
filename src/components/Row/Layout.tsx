@@ -46,13 +46,15 @@ export const Layout = ({
               isLargeRow ? movie.poster_path : movie.backdrop_path
             );
 
+            const url = imgPath ? `${image_url}/${imgPath}` : "";
+
             return (
               <img
                 key={movie.id}
                 className={`object-contain w-full max-h-24 m-2 transform transition-transform duration-450 ${
                   isLargeRow ? "max-h-60 hover:scale-110" : "hover:scale-108"
                 }`}
-                src={`${image_url}/${imgPath}`}
+                src={url}
                 onClick={() => handleClick(movie)}
                 alt={movie.name}
               />
